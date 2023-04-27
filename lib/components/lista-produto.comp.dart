@@ -13,6 +13,8 @@ class ListaProduto extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
+    controller.getProdutos();
+
     return Scaffold(
       body: Obx(() => 
         ListView.builder(
@@ -20,7 +22,7 @@ class ListaProduto extends StatelessWidget {
           itemCount: controller.lista.value.length,
           itemBuilder: (context, index) {
             final p = controller.lista.value[index];
-            return ItemProduto(nome: p.nome, preco: p.preco);
+            return ItemProduto(name: p.name, price: p.price);
           }
 
         )
@@ -34,8 +36,11 @@ class ListaProduto extends StatelessWidget {
           }));
 
           future.then((produto) {
-            controller.lista.value = [...controller.lista.value, produto];
-          });
+            print(produto);
+            if(produto) {
+              controller.lista.value = [...controller.lista.value, produto];
+            }
+          }).ignore();
         },
 
       ),

@@ -18,26 +18,26 @@ class Formulario extends StatelessWidget {
 }
 
 class FormularioProduto extends StatelessWidget {
-  final TextEditingController _nome = TextEditingController();
-  final TextEditingController _preco = TextEditingController();
+  final TextEditingController _name = TextEditingController();
+  final TextEditingController _price = TextEditingController();
 
   @override
   void dispose() {
-    _nome.dispose();
-    _preco.dispose();
+    _name.dispose();
+    _price.dispose();
   }
 
   handleClick_Submit(context) {
-    final ItemProduto transferencia = ItemProduto(nome: _nome.text, preco: _preco.text);
+    final ItemProduto produto = ItemProduto(name: _name.text, price: double.parse(_price.text));
 
-    Navigator.pop(context, transferencia);
+    Navigator.pop(context, produto);
   }
 
   @override
   Widget build(BuildContext context) {
     return Column(children: [
-      CampoTexto(controller: _nome, label: 'Nome'),
-      CampoTexto(controller: _preco, label: 'Preço', placeholder: '0,00', icon: Icon(Icons.monetization_on)),
+      CampoTexto(controller: _name, label: 'Nome'),
+      CampoTexto(controller: _price, label: 'Preço', placeholder: '0,00', icon: Icon(Icons.monetization_on)),
       ElevatedButton(
           onPressed: () => handleClick_Submit(context),
           child: Text(
