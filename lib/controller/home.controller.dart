@@ -5,7 +5,6 @@ import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 
 import '../components/item-produto.comp.dart';
-import '../main.dart';
 
 class HomeController extends GetxController {
   final RxList lista = List.empty().obs;

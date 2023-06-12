@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -18,7 +17,6 @@ class ListaProduto extends StatelessWidget {
     return Scaffold(
       body: Obx(() => 
         ListView.builder(
-
           itemCount: controller.lista.value.length,
           itemBuilder: (context, index) {
             final p = controller.lista.value[index];
@@ -28,7 +26,6 @@ class ListaProduto extends StatelessWidget {
         )
       ),
       floatingActionButton: FloatingActionButton(
-
         child: const Icon(Icons.add),
         onPressed: () {
           final Future future = Navigator.push(context, MaterialPageRoute(builder: (context) {
